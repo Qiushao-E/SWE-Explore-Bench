@@ -53,9 +53,9 @@ def chunk_repo(
             content = "\n".join(lines[i:end_idx])
             if content.strip():
                 chunks.append(Chunk(path=rel, start=i + 1, end=end_idx, content=content))
-            if end_idx >= len(lines):
-                break
             if len(chunks) >= max_chunks:
                 return chunks
+            if end_idx >= len(lines):
+                break
 
     return chunks
